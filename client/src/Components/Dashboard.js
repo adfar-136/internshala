@@ -8,7 +8,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         axios.defaults.withCredentials = true;
-        axios.get('https://internshalaa.onrender.com/auth/verify')
+        axios.get('http://localhost:3000/auth/verify')
             .then(res => {
                 if (!res.data.status) {
                     navigate("/login");
@@ -23,7 +23,7 @@ const Dashboard = () => {
     }, [navigate]);
     const fetchAppliedOpportunities = async () => {
         try {
-          const response = await axios.get('https://internshalaa.onrender.com/auth/applied-opportunities');
+          const response = await axios.get('http://localhost:3000/auth/applied-opportunities');
           setAppliedOpportunities(response.data);
         } catch (error) {
           console.error('Error fetching applied opportunities:', error);
@@ -32,7 +32,7 @@ const Dashboard = () => {
     
     
     const handleLogout =()=>{
-        axios.get("https://internshalaa.onrender.com/auth/logout")
+        axios.get("http://localhost:3000/auth/logout")
         .then((res)=>{
             if(res.data.status){
             localStorage.clear(); 

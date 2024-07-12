@@ -8,8 +8,8 @@ import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import path from "path"
 import { UserRouter } from "./routes/user.js";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
 const app = express();
 app.use(bodyParser.json())
 dotenv.config();
@@ -29,10 +29,10 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch((e) => {
     console.log(e);
   });
-  app.use(express.static(path.join(__dirname, '/buildd')));
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname+'/buildd/index.html'));
-  });
+  // app.use(express.static(path.join(__dirname, '/buildd')));
+  // app.get('*', (req, res) => {
+  //   res.sendFile(path.join(__dirname+'/buildd/index.html'));
+  // });
 app.listen(process.env.PORT,()=>{
     console.log("Server is running on port 3000")
 })

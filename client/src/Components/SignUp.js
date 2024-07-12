@@ -18,7 +18,7 @@ export default function SignUp() {
             return;
         }
 
-        Axios.post("https://internshalaa.onrender.com/auth/signup", {
+        Axios.post("http://localhost:3000/auth/signup", {
             username,
             email,
             password

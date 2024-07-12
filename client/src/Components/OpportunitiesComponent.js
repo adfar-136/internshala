@@ -22,7 +22,7 @@ const OpportunityCard = ({ opportunity,appliedOpportunities  }) => {
     console.log(isApplied)
     const applyForOpportunity = async (opportunity) => {
         try {
-          await axios.post('https://internshalaa.onrender.com/auth/apply', { opportunity })
+          await axios.post('http://localhost:3000/auth/apply', { opportunity })
           .then((res) => {
             console.log(res)
           })
@@ -57,7 +57,7 @@ const OpportunitiesComponent = () => {
 
     const fetchAppliedOpportunities = async () => {
         try {
-            const response = await axios.get('https://internshalaa.onrender.com/auth/applied-opportunities');
+            const response = await axios.get('http://localhost:3000/auth/applied-opportunities');
             setAppliedOpportunities(response.data);
         } catch (error) {
             console.error('Error fetching applied opportunities:', error);
